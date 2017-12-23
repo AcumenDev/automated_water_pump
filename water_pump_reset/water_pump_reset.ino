@@ -1,6 +1,6 @@
-#define INPUT_PIN 3
-#define VALVE_PIN 4
-#define PUMP_PIN 5
+#define INPUT_PIN 9
+#define VALVE_PIN 8
+#define PUMP_PIN 7
 
 #define VALVE_WORK_TIME 1000 * 1
 
@@ -14,8 +14,8 @@ void setup() {
   pinMode(INPUT_PIN, INPUT_PULLUP);
   pinMode(VALVE_PIN, OUTPUT);
   pinMode(PUMP_PIN, OUTPUT);
-  digitalWrite(VALVE_PIN, LOW);
-  digitalWrite(PUMP_PIN, LOW);
+  digitalWrite(VALVE_PIN, HIGH);
+  digitalWrite(PUMP_PIN, HIGH);
 
   current = OFF;
   inputState = false;
@@ -69,17 +69,17 @@ bool getInputState(bool currentInputState) {
 }
 
 void valveOn() {
-  digitalWrite(VALVE_PIN, HIGH);
-  delay(VALVE_WORK_TIME);
   digitalWrite(VALVE_PIN, LOW);
+  delay(VALVE_WORK_TIME);
+  digitalWrite(VALVE_PIN, HIGH);
 }
 
 void setStatePump(bool state) {
-  delay(200);
+  delay(300);
   if (state) {
-    digitalWrite(PUMP_PIN, HIGH);
-  } else {
     digitalWrite(PUMP_PIN, LOW);
+  } else {
+    digitalWrite(PUMP_PIN, HIGH);
   }
-  delay(200);
+  delay(300);
 }
