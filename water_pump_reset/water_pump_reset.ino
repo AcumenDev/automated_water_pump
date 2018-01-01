@@ -80,6 +80,7 @@ void setStatePump(bool state) {
     digitalWrite(PUMP_PIN, LOW);
   } else {
     digitalWrite(PUMP_PIN, HIGH);
+    delay(2000);
   }
   delay(300);
 }
